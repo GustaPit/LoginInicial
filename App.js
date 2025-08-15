@@ -27,7 +27,8 @@ export default function App() {
       <TouchableOpacity
                         style={styles.texto2}
                         onPress={() => alert('Toque detectado')}  >  
-                        <Text style={styles.textobotao2} >Outras opções</Text>                       
+                        <Text style={styles.textobotao2} >Outras opções</Text>  
+                                             
       </TouchableOpacity>
 
     </View>
