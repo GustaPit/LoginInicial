@@ -8,6 +8,7 @@ export default function Acesse({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [lembrarSenha, setLembrarSenha] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -40,6 +41,16 @@ export default function Acesse({ navigation }) {
       </View>
 
       <View style={styles.linhaOpcoes}>
+        <View style={styles.checkboxRow}>
+          <TouchableOpacity
+            style={styles.checkbox}
+            onPress={() => setLembrarSenha(!lembrarSenha)}
+          >
+            {lembrarSenha && <Icon name="check" size={16} color="#143325ff" />}
+          </TouchableOpacity>
+          <Text>Lembrar senha</Text>
+        </View>
+
         <TouchableOpacity style={styles.link}>
           <Text>Esqueci minha senha</Text>
         </TouchableOpacity>
@@ -57,8 +68,8 @@ export default function Acesse({ navigation }) {
       <Text style={styles.textoOu}>Ou continue com</Text>
 
       <View style={styles.Redes}>
-        <Image source={Google} style={styles.icone} />
-        <Image source={Facebook} style={styles.icone} />
+        <Image source={Google} style={styles.icones} />
+        <Image source={Facebook} style={styles.icones} />
       </View>
     </View>
   );
@@ -104,8 +115,26 @@ const styles = StyleSheet.create({
   },
   linhaOpcoes: {
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginTop: 15,
+  },
+  checkboxRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    fontSize: 14,
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+    borderColor: '#888',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 5,
+  },
+  checkboxLabel: {
+    fontSize: 14,
   },
   link: {
     color: "#00A859",
@@ -147,11 +176,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 15,
   },
-  icone: {
+  icones: {
     width: 40,
     height: 40,
     marginHorizontal: 10,
   },
 });
+
 
 
